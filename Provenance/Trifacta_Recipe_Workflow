@@ -1,0 +1,37 @@
+'''
+@begin CleanWithTrifacta @desc Trifacta Workflow for farmersmarkets dataset
+@in farmersmarkets.csv @uri file://data/farmersmarkets.csv
+
+   @begin LoadToTrifacta @desc Upload farmersmarkets_Openrefine.csv data to Trifacta
+   @in farmersmarkets_openrefine.csv @uri file://data/farmersmarketsopenrefine.cv
+   @out spreadsheet
+   @end CleanWithTrifacta
+
+   @begin ColumnsToClean @desc Columns that are cleaned
+   @in spreadsheet
+   @out Facebook
+   @out Website
+   @out updateTime
+   @end ColumnsToClean
+
+   @begin ismismatched @desc new mismatchformat field
+   @in Facebook
+   @in Website
+   @end ismismatched
+
+@begin FormatTimeDefault @desc Change 'YYYY' format values to '1-1-YYYY 1:00:00AM'
+   @in updateTime
+   @out updateTime_1
+   @end FormatTimeDefault
+
+   @begin FormatTime @desc Change 'Month DD YYYY' to mm-dd-yy hh:mm:ss'
+   @in updateTime_1
+   
+   @end FormatTime
+
+
+
+ 
+@out farmersmarkets-or.csv @uri file://data/farmersmarkets-or.csv
+@end CleanWithOpenRefine
+'''
