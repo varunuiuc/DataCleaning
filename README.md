@@ -1,7 +1,7 @@
 # DataCleaning
 Author Varun Sharma
 
-In this report farmers market data is analyzed and cleansed to solve some common use cases. 
+In this report farmers market data is analyzed and cleansed to solve data quality issues in the data set. 
 
 The tools used in the project are OpenRefine for clustering and refining data, SQLite for relational database, Trifacta Data Wrangler and YesWorkflow for provenance.
 
