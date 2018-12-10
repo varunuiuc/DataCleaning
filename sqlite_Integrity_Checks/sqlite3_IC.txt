@@ -1,0 +1,15 @@
+
+1.Every market has a website URL
+Not all farmer's market have website
+select count(*) from farmers_market where Website="" ;
+3490
+
+2.IC check website validity
+In negate form finds the non compliant number
+select count(*) from farmers_market where not_FacebookURL="TRUE";
+564
+
+3.Every record has city and county information
+
+sqlite> select count(*) from farmers_market where city="" OR county="";
+523
