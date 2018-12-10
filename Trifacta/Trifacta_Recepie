@@ -1,0 +1,5 @@
+derive type: single value: ISMISMATCHED(Facebook, ['Url']) as: 'ismismatched_Facebook'
+derive type: single value: ISMISMATCHED(Website, ['Url']) as: 'ismismatched_Website'
+replacepatterns col: updateTime with: '1\/1\/2013 1:00:00 AM' on: `{start}{digit}{4}{end}`
+set col: updateTime value: IFMISMATCHED($col, ['Datetime','mm-dd-yy hh:mm:ss','mm*dd*yyyy*hh:MM:SSa'], NULL())
+rename type: manual mapping: [ismismatched_Facebook,'Not_FacebookURL']
