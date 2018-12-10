@@ -1,0 +1,84 @@
+'''
+@begin CleanWithOpenRefine @desc OpenRefine Workflow for farmersmarkets dataset
+@in farmersmarkets.csv @uri file://data/farmersmarkets.csv
+
+   @begin LoadToOpenRefine @desc Upload farmersmarkets.csv data to OpenRefine
+   @in farmersmarkets.csv @uri file://data/farmersmarkets.cv
+   @out spreadsheet
+   @end CleanWithOpenRefine
+
+   @begin ColumnsToClean @desc Columns that are cleaned
+   @in spreadsheet
+   @out MarketName
+   @out Website
+   @out Facebook
+   @out Twitter
+   @out Youtube
+   @out OtherMedia
+   @out street
+   @out city
+   @out County
+   @out State
+   @out zip
+   @out updatedTime
+   @end ColumnsToClean
+
+   @begin TrimSpaces @desc Trim leading and trailing white spaces, Collapse white spaces
+   @in MarketName
+   @in Website
+   @in Facebook
+   @in Twitter
+   @in Youtube
+   @in OtherMedia
+   @in street
+   @in city
+   @in county
+   @in State
+   @in zip
+   @in UpdatedTime
+   @out MarketName_trim
+   @out Website_trim
+   @out Facebook_trim
+   @out Twitter_trim
+   @out Youtube_trim
+   @out OtherMedia_trim
+   @out city_trim
+   @out county_trim
+   @out State_trim
+   @out zip_trim
+   @in Organic
+   @out UpdatedTime_trim
+   @end TrimSpaces
+
+
+
+   @begin FormatTime @desc Change 'Month DD YYYY' to 'MM/DD/YYYY'
+   @in updatedTime
+   @end FormatTime
+
+   @begin ClusterValues @desc Cluster Similar values
+   @in MarketName_trim
+   @in city_trim
+   @in Website_trim
+   @in county_trim
+   @in Facebook_trim
+   @in city_trim
+   @in State_trim
+   @in Youtube_trim
+   @in Twitter_trim
+   @in OtherMedia_trim
+   @end ClusterValues
+
+   @begin UpperCase @desc Uppercase Values
+   @in city_trim
+   @end DUpperCase
+
+ 
+   @begin ReplaceNull @desc Replace Null,- by NA Not Available
+   @in Organic
+   @end ReplaceNull
+
+ 
+@out farmersmarkets-or.csv @uri file://data/farmersmarkets-or.csv
+@end CleanWithOpenRefine
+'''
